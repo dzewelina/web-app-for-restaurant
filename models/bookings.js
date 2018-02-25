@@ -3,7 +3,10 @@ const fs = Promise.promisifyAll(require('fs'));
 const path = require('path');
 const _ = require('underscore');
 
-const filePath = path.join(__dirname, '../data/bookings.json');
+let filePath = path.join(__dirname, '../data/bookings.json');
+if (process.env.NODE_ENV === 'test') filePath = path.join(__dirname, '../data/bookings.test.json');
+
+console.log('MODULE', process.env.NODE_ENV)
 
 const fetchAllBookings = () => {
   return fs.readFileAsync(filePath, 'utf8')

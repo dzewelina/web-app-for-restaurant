@@ -62,7 +62,7 @@ class NewBooking extends Component {
   handleBooking = event => {
     event.preventDefault();
     const { bookingId } = this.props.match.params;
-    const updatedBooking = this.state;
+    const updatedBooking = this.state.bookingToUpdate;
 
     fetch(`http://localhost:4000/booking/edit/${bookingId}`, {
       method: 'PUT',
