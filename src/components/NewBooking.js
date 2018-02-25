@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import {withRouter} from "react-router-dom";
 
 class NewBooking extends Component {
 
@@ -51,7 +51,10 @@ class NewBooking extends Component {
           'Content-Type': 'application/json'
         })
       })
+      .then(res => {
+        if (res.status === 201) this.props.history.push('/bookings');
+      });
   };
 };
 
-export default NewBooking;
+export default withRouter(NewBooking);
