@@ -40,7 +40,7 @@ class Bookings extends Component {
                 booking.numberOfPeople > 6 ? style.color = 'red' :
                   booking.numberOfPeople === 1 ? style.color = 'blue' : style.color = 'black';
                 return (
-                  <tr key={booking.bookingId} style={style}>
+                  <tr key={booking.bookingId} style={style} onClick={() => this.handleClick(booking)}>
                     <td>{booking.contactName}</td>
                     <td>{booking.contactNumber}</td>
                     <td>{booking.numberOfPeople}</td>
@@ -64,6 +64,10 @@ class Bookings extends Component {
     const hours = `0${date.getHours()}`.slice(-2);
     const minutes = `0${date.getMinutes()}`.slice(-2);
     return `${day}/${month}/${year} ${hours}:${minutes}`
+  };
+
+  handleClick = (booking) => {
+    this.props.history.push(`/edit/${booking.bookingId}`);
   };
 };
 
