@@ -17,7 +17,7 @@ class Bookings extends Component {
     const { bookings } = this.state;
     return (
       <div>
-        <Link to={'/bookings/create'}><button type='button' className='btn btn-primary float-right'>New Booking</button></Link>
+        <Link to={'/create'}><button type='button' className='btn btn-primary float-right'>New Booking</button></Link>
         <table className="table table-striped">
           <thead>
             <tr>

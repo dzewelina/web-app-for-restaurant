@@ -52,7 +52,7 @@ class NewBooking extends Component {
         })
       })
       .then(res => {
-        if (res.status === 201) this.props.history.push('/bookings');
+        if (res.status === 201) this.props.history.push('/');
       });
   };
 };
